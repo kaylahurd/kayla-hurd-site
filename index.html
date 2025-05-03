@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayla Hurd | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      scroll-padding-top: 100px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      background-color: #fefefe;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #fff;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+    nav a {
+      text-decoration: none;
+      color: #ff758c;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff3c6f;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #ff3c6f;
+    }
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid #ff758c;
+    }
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1rem;
+      background: #fff0f5;
+      border-left: 4px solid transparent;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .timeline-entry:hover {
+      border-left-color: #ff3c6f;
+      transform: translateX(5px);
+    }
+    .timeline-entry h3 {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-entry p {
+      margin: 0.3rem 0;
+    }
+    .timeline-entry .icon {
+      position: absolute;
+      top: 1rem;
+      left: -2.5rem;
+      background: #ff758c;
+      color: white;
+      border-radius: 50%;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .details {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .timeline-entry.expanded .details {
+      display: block;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .skills-list li {
+      background-color: #ffe3ec;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      color: #ff3c6f;
+    }
+    .project {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s;
+    }
+    .project:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ff758c;
+      color: white;
+    }
+    .resume-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #ff758c;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .resume-btn:hover {
+      background-color: #ff3c6f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="profile.jpg" alt="Kayla Hurd">
+    <h1>Kayla Hurd</h1>
+    <p>Future Software Engineer & Tech Enthusiast</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Kayla, a Senior Computer Science student at Georgia State University. I'm currently exploring Software Engineering, IT, Web Dev, and Mobile Apps.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Calorie Tracker App</h3>
+      <p>Used Swift and XCode to create a Calorie Tracking app enabling users to log ingredients, meals, and monitor their nutrition goals.</p>
+    </div>
+    <div class="project">
+      <h3>Student Management System</h3>
+      <p>Developed a MySQL database using DBeaver to manage student information, course enrollment, and grades.</p>
+    </div>
+    <div class="project">
+      <h3>Open Wheelchair Project</h3>
+      <p>Built motorized wheelchairs using PVC materials for children in need.</p>
+    </div>
+    <div class="project">
+      <h3>FIRST Robotics</h3>
+      <p>Led an all-girls team. Programmed autonomous movement in JavaScript and managed budget and logistics for 10 years.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-entry" onclick="this.classList.toggle('expanded')">
+        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>IT Intern – OTM Media & IT Solutions (Oct 2024 – Present)</h3>
+        <p>Provided tech support & troubleshooting, built inventory systems with Python/Java, and delivered full-cycle custom solutions.</p>
+        <div class="details">
+          <ul>
+            <li>Collaborated on small-scale programming projects</li>
+            <li>Built full software lifecycle systems from development to testing</li>
+            <li>Delivered client-side software using Python and Java</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-entry" onclick="this.classList.toggle('expanded')">
+        <div class="icon"><i class="fas fa-user-check"></i></div>
+        <h3>CX Intern – SiteOne Landscape Supply (May 2024 – Aug 2024)</h3>
+        <p>Boosted engagement, implemented Partner Program, improved UX and customer satisfaction, and contributed to data analysis.</p>
+        <div class="details">
+          <ul>
+            <li>Contributed to pricing and inventory access tools</li>
+            <li>Analyzed UX data for improving user satisfaction</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-entry" onclick="this.classList.toggle('expanded')">
+        <div class="icon"><i class="fas fa-robot"></i></div>
+        <h3>Main Programmer – FTC Robotics (2017 – 2022)</h3>
+        <p>Programmed robot hub using JavaScript, led budget & sponsor tasks, and directed build execution and competition strategy.</p>
+        <div class="details">
+          <ul>
+            <li>Managed code for autonomous and manual robot actions</li>
+            <li>Coordinated fundraising and led technical presentations</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <div class="icon"><i class="fas fa-cogs"></i></div>
+        <h3>Main Programmer – FLL Robotics (2012 – 2017)</h3>
+        <p>Used block coding on pre-built robots and introduced younger team members to programming.</p>
+      </div>
+      <div class="timeline-entry">
+        <div class="icon"><i class="fas fa-hamburger"></i></div>
+        <h3>Drive Thru Leader – McDonald's (2020 – 2021)</h3>
+        <p>Took customer orders, demonstrated multitasking, and managed packaging at the drive-thru window.</p>
+      </div>
+      <div class="timeline-entry">
+        <div class="icon"><i class="fas fa-utensils"></i></div>
+        <h3>Counter & Server – Alessios (2021 – 2022)</h3>
+        <p>Managed takeout orders, ensured accuracy, and supported roles in table service, expo, dishwashing, and hosting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>Java</li>
+      <li>C++</li>
+      <li>HTML/CSS/JavaScript</li>
+      <li>Swift / SwiftUI</li>
+      <li>iOS Development</li>
+      <li>SQL</li>
+      <li>Power BI</li>
+      <li>Microsoft Office</li>
+    </ul>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>View or download my resume below.</p>
+    <a class="resume-btn" href="assets/resume.pdf" download>Download Resume</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:kaylahurd39@gmail.com">kaylahurd39@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/kayla-hurd" target="_blank">linkedin.com/in/kayla-hurd</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kayla Hurd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (() => {
+      const pageSections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      pageSections.forEach(section => observer.observe(section));
+    })();
+  </script>
+</body>
+</html>
