@@ -1,2 +1,0 @@
-# kayla-hurd-site
-
